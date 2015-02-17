@@ -111,7 +111,7 @@ var _diffArraysSearch = function(input, output, ptr) {
           operations.push({op: 'add', path: path, value: output[j - 1]});
         }
         else {
-          operations.push({op: 'replace', path: ptr.add(j - 1), value: output[j - 1]});
+          operations = operations.concat(_diff(input[i - 1], output[j - 1], ptr.add(j - 1)));
         }
         memoized = {
           // the new operation(s) must be pushed on the end
